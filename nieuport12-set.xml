@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList include="Systems/nieuport12-base.xml">
+
+  <sim>
+
+    <description>Nieuport 12 A.2 (YASim)</description>
+    <long-description>The Nieuport 12 (or Nieuport XII) was a French sesquiplane reconnaissance, fighter and trainer aircraft 
+    used by France, Russia, Great Britain and the United States during World War I. Later production examples were built as trainers.
+    Manufactured 1915-1918 and served widely until the late 1920s.It is fitted with Clerget, 130 hp (97 kW) Clerget 9B engine.
+    It could be also fitted with either a 100 hp (75 kW) Clerget or 110 hp (82 kW) Le Rhone 9 engines. This model is based on Emmanuel BARANGER's Nieuport-11.
+    </long-description>
+    <authors>
+      <author   n="0">
+        <name>Sergei "Skydive" Solyshko (Reworked 3D model and extras)</name>
+      </author>
+      <author   n="1">
+        <name>Emmanuel BARANGER (Original 3D Model (N-11 Bebe) and FDM)</name>
+      </author>
+
+    </authors>
+
+    <aircraft-version>0.4</aircraft-version>
+    <status>Alpha</status>
+    <minimum-fg-version>2018.2.0</minimum-fg-version>
+
+    <flight-model archive="y">yasim</flight-model>
+    <aero archive="y">Systems/nieuport12-yasim</aero>
+
+    <rating>
+      <FDM type="int">     2 </FDM>
+      <systems type="int"> 3 </systems>
+      <cockpit type="int"> 3 </cockpit>
+      <model type="int">   4 </model>
+    </rating>
+
+    <previews>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/nieuport-0.png</path>
+      </preview>
+      <preview>
+        <type>interior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/nieuport-1.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/nieuport-2.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/nieuport-3.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/nieuport-4.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/nieuport-5.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/nieuport-6.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/nieuport-7.png</path>
+      </preview>
+    </previews>
+
+    <tags>
+      <tag>nieuport</tag>
+      <tag>fighter</tag>
+      <tag>1916</tag>
+      <tag>tail-dragger</tag>
+      <tag>single-engine</tag>
+      <tag>piston</tag>
+      <tag>compositor</tag>
+    </tags>
+
+  </sim>
+
+</PropertyList>
