@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>interior.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>interieur</object-name>
+    <object-name>structure</object-name>
+    <object-name>fuselage.002</object-name>
+    <object-name>structure.003</object-name>
+    <object-name>pedals.004</object-name>
+
+    <object-name>mag_box</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>intvitres</object-name>
+  </animation>
+
+  <!-- working for Compositor -->
+  <effect>
+    <inherits-from>../Effects/Glass/glassrain</inherits-from>
+    <object-name>intvitres</object-name>
+  </effect>
+
+  <model>
+    <path>../Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> -1.65334 </x-m>
+      <y-m>  0.016 </y-m>
+      <z-m> -0.07526 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>../Pilot/observer.xml</path>
+    <offsets>
+      <x-m> -0.68 </x-m>
+      <y-m>  -0.016 </y-m>
+      <z-m> -0.126 </z-m>
+      <heading-deg> 180.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Tableau de bord -->
+  <model>
+    <path>/Panel/panel.xml</path>
+    <!-- was -1.92634 m  0.503 m-->
+    <offsets>
+      <x-m> -2.02002 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.53177 </z-m>
+    </offsets>
+  </model>
+
+</PropertyList>

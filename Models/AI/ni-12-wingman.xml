@@ -1,0 +1,306 @@
+<PropertyList>
+<description>Nieuport-12 Two seater wingman (low poly)</description>
+<path>Models/ni-12-wingman.ac</path>
+<!-- <sound><path>AI/Sounds/balloon-sound2.xml</path></sound> -->
+
+ <animation>
+    <object-name>s-cables</object-name>
+    <object-name>s-gun</object-name>
+    <object-name>s-visor</object-name>
+    <object-name>s-engine</object-name>
+	  <object-name>s-fuselage</object-name>
+    <object-name>s-fuselagerim</object-name>
+	  <object-name>s-engine</object-name>
+	  <object-name>s-propeller</object-name>
+    <object-name>s-gear</object-name>
+    <object-name>s-mounts</object-name>
+    <object-name>s-mounts.001</object-name>
+    <object-name>s-interior</object-name>
+    <object-name>s-rudder</object-name>
+    <object-name>s-elevator</object-name>
+
+    <!-- Objects transparent -->
+	  <object-name>s-glass</object-name>
+    <object-name>s-propdisc</object-name>
+    <object-name>s-propblur</object-name>
+ </animation>
+
+ <animation>
+    <type>noshadow</type>
+    <object-name>s-fuselagerim</object-name>
+    <object-name>s-cables</object-name>
+    <object-name>s-gun</object-name>
+    <object-name>s-visor</object-name>
+    <object-name>s-engine</object-name>
+	  <object-name>s-engine</object-name>
+	  <object-name>s-propeller</object-name>
+    <object-name>s-propdisc</object-name>
+    <object-name>s-propblur</object-name>
+	  <object-name>s-glass</object-name>
+ </animation>
+
+   <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>s-propdisc</object-name>
+    <object-name>s-propblur</object-name>
+    <object-name>s-glass</object-name>
+  </effect>
+
+  <!-- <animation>
+		<type>material</type>
+		<object-name>s-propdisc</object-name>
+    <object-name>s-propblur</object-name>
+		<transparency>
+			<alpha-prop>engines/engine[0]/rpm</alpha-prop>
+			<factor>0.01</factor>
+			<offset>-5</offset>
+		</transparency>
+	</animation> -->
+
+  <animation>
+    <type>select</type>
+    <object-name>s-propdisc</object-name>
+    <condition>
+      <greater-than>
+        <property>/engines/engine[0]/rpm</property>
+        <value>1100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>s-propblur</object-name>
+    <condition>
+    <and>
+      <greater-than>
+        <property>/engines/engine[0]/rpm</property>
+        <value>600.000</value>
+      </greater-than>
+      <less-than>
+        <property>/engines/engine[0]/rpm</property>
+        <value>1100.001</value>
+      </less-than>
+    </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>s-propeller</object-name>
+    <condition>
+      <less-than>
+        <property>/engines/engine[0]/rpm</property>
+        <value>1100</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+		<type>spin</type>
+		<object-name>s-propblur</object-name>
+    <object-name>s-propdisc</object-name>
+    <object-name>s-engine</object-name>
+    <object-name>s-propeller</object-name>
+    <condition>
+      <greater-than>
+        <property>/engines/engine[0]/rpm</property>
+        <value> 5 </value>
+      </greater-than>
+    </condition>
+    <property>/engines/engine[0]/rpm</property>
+    <factor> -1 </factor>
+		<center>
+      <x-m>-3.18173</x-m>
+      <y-m>0</y-m>
+      <z-m>0.037352</z-m>
+    </center>
+    <axis>
+      <x>1.000</x>
+      <y>0.000</y>
+      <z>0.000</z>
+    </axis>
+	</animation>
+
+  <model>
+    <path>../Effects/cranking/all-cranking-wingman.xml</path>
+  </model>
+
+  <model>
+    <path>../Effects/ground/all-ground.xml</path>
+  </model>
+
+  <model>
+    <name>muzzle-flash</name>
+    <path>../Effects/guns/fire.xml</path>
+    <offsets>
+      <x-m> -1.98779 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  1.36474 </z-m>
+      <pitch-deg> 180 </pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>../Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> -1.65334 </x-m>
+      <y-m>  0.016 </y-m>
+      <z-m> -0.07526 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>../Pilot/observer.xml</path>
+    <offsets>
+      <x-m> -0.68 </x-m>
+      <y-m>  -0.016 </y-m>
+      <z-m> -0.126 </z-m>
+      <heading-deg> 180.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Screamer-left</name>
+    <path>../Screamer/screamer.ac</path>
+    <offsets>
+      <x-m> -1.19871 </x-m>
+      <y-m> -2.79118 </y-m>
+      <z-m>  0.360374 </z-m>
+      <roll-deg> 18.4 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Screamer-right</name>
+    <path>../Screamer/screamer.ac</path>
+    <offsets>
+      <x-m> -1.19871 </x-m>
+      <y-m>  2.79118 </y-m>
+      <z-m>  0.360374 </z-m>
+      <roll-deg> -18.4 </roll-deg>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>muzzle-flash</object-name>
+    <condition>
+      <property>/controls/armament/trigger</property>
+      <property>/ai/submodels/submodel/count</property>
+    </condition>
+  </animation>
+
+  <!-- Rudder bits -->
+	<animation>
+		<type>rotate</type>
+		<object-name>s-rudder</object-name>
+		<property>/surface-positions/rudder-pos-norm</property>
+		<factor>15</factor>
+		<center>
+			<x-m>3.09544</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+
+  <!-- Elevator bits -->
+	<animation>
+		<type>rotate</type>
+		<object-name>s-elevator</object-name>
+		<property>/surface-positions/elevator-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m> 3.0402 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.44978 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+	</animation>
+
+  <!-- Alieron bits -->
+	<animation>
+		<type>rotate</type>
+		<object-name>s-aileron-l</object-name>
+		<property>/surface-positions/left-aileron-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m> -1.20235 </x1-m>
+      <y1-m> -4.43205 </y1-m>
+      <z1-m>  1.0651 </z1-m>
+      <x2-m> -1.19635 </x2-m>
+      <y2-m> -2.53785 </y2-m>
+      <z2-m>  1.03247 </z2-m>
+    </axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>s-aileron-r</object-name>
+		<property>/surface-positions/right-aileron-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m> -1.19635 </x1-m>
+      <y1-m>  2.53785 </y1-m>
+      <z1-m>  1.03247 </z1-m>
+      <x2-m> -1.20235 </x2-m>
+      <y2-m>  4.43205 </y2-m>
+      <z2-m>  1.0651 </z2-m>
+    </axis>
+	</animation>
+
+     <!-- This is for AI traffic - Propellers Rotate at 4 times Aircraft speed (0 when parked) Blur appears if Speed over 15 knots -->
+
+
+  <!-- <animation>
+    <type>select</type>
+    <object-name>s-propdisc</object-name>
+    <object-name>s-propblur</object-name>
+    <condition>
+      <greater-than-equals>
+        <property>velocities/true-airspeed-kt</property>
+        <value>10</value>
+      </greater-than-equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>s-propeller</object-name>
+    <condition>
+      <less-than>
+        <property>velocities/true-airspeed-kt</property>
+        <value>10</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>s-propblur</object-name>
+    <object-name>s-propdisc</object-name>
+    <object-name>s-engine</object-name>
+    <property>velocities/true-airspeed-kt</property>
+    <factor>-4</factor>
+    <center>
+      <x-m>-3.18173</x-m>
+      <y-m>0</y-m>
+      <z-m>0.037352</z-m>
+    </center>
+    <axis>
+      <x>1.000</x>
+      <y>0.000</y>
+      <z>0.000</z>
+    </axis>
+  </animation> -->
+
+</PropertyList>

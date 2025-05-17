@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<PropertyList include="ww1_oballoon.xml">
+
+  <description>German observation balloon</description>
+  <texture-path>Textures/ob1</texture-path>
+
+</PropertyList>

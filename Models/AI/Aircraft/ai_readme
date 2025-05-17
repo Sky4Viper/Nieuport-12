@@ -1,0 +1,3 @@
+-Place "oballoon" folder inside "AI/Aircraft" folder in FG/root (required for ww1_observation_balloons script)
+-Place "ww1_observation_balloons.xml" script file inside "AI/" folder in FG/root
+-Start the script from gui menu (AI->Traffic and scenarios settings->WW1 observation baloons

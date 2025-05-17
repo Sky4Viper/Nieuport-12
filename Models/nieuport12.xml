@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>nieuport12.ac</path>
+
+  <!-- MP sound call -->
+  <sound>
+    <path>../Sounds/mp-sound.xml</path>
+  </sound>
+
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Liveries", 10);
+
+      var self = cmdarg();
+
+    </load>
+
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>fuselage</object-name>
+    <object-name>caches</object-name>
+    <object-name>ailesB</object-name>
+    <object-name>ailesH</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>ailes2</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>direction</object-name>
+    <object-name>capot</object-name>
+    <object-name>pieds</object-name>
+    <object-name>montants</object-name>
+    <object-name>structure</object-name>
+
+    <object-name>trous</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+    <object-name>axe</object-name>
+    <object-name>gun</object-name>
+    <object-name>cables</object-name>
+    <object-name>freins</object-name>
+
+    <object-name>screws</object-name>
+    <object-name>gun_ring</object-name>
+    <object-name>sight.002</object-name>
+    <object-name>glass_frame</object-name>
+
+    <object-name>lewisMG.001</object-name>
+    <object-name>lewisdrum.001</object-name>
+    <object-name>lewisMG.002</object-name>
+    <object-name>lewisdrum.002</object-name>
+    <object-name>lewisdrum_extra.001</object-name>
+    <object-name>mag_box</object-name>
+
+
+    <!-- Objets transparents -->
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    
+    <object-name>caches</object-name>
+    <object-name>ailesB</object-name>
+    <object-name>ailesH</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>ailes2</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>direction</object-name>
+    <object-name>capot</object-name>
+    <object-name>pieds</object-name>
+    <object-name>montants</object-name>
+    <object-name>structure</object-name>
+
+    <object-name>trous</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+    <object-name>axe</object-name>
+    <object-name>gun</object-name>
+    <object-name>cables</object-name>
+    <object-name>freins</object-name>
+
+    <object-name>screws</object-name>
+    <object-name>gun_ring</object-name>
+    <object-name>sight.002</object-name>
+    <object-name>glass_frame</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+    <specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
+  </animation>
+
+  <effect>
+    <inherits-from>Effects/Bump/bumpspec</inherits-from>
+    <object-name>montants</object-name>
+    <object-name>pieds</object-name>
+    <object-name>screws</object-name>
+  </effect>
+
+  <!-- <effect>
+    <inherits-from>Effects/Bump/bumpspeccapot</inherits-from>
+    <object-name>capot</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>glass_frame</object-name>
+    <object-name>gun_ring</object-name>
+  </effect> -->
+
+  <!-- working for Compositor -->
+  <effect>
+    <inherits-from>Effects/Glass/glassrain</inherits-from>
+    <object-name>vitres</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+  </effect>
+
+  <model>
+    <name>Interieur</name>
+    <path>Interior/interior.xml</path>
+  </model>
+
+  <model>
+    <path>Engine/all-engines.xml</path>
+  </model>
+
+  <model>
+    <name>Screamer-left</name>
+    <path>Screamer/screamer.xml</path>
+    <offsets>
+      <x-m> -1.19871 </x-m>
+      <y-m> -2.79118 </y-m>
+      <z-m>  0.360374 </z-m>
+      <roll-deg> 18.4 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Screamer-right</name>
+    <path>Screamer/screamer.xml</path>
+    <offsets>
+      <x-m> -1.19871 </x-m>
+      <y-m>  2.79118 </y-m>
+      <z-m>  0.360374 </z-m>
+      <roll-deg> -18.4 </roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Effects/guns/all-fires.xml</path>
+  </model>
+
+  <model>
+    <path>Effects/cranking/all-cranking.xml</path>
+  </model>
+
+  <model>
+    <path>Effects/ground/all-ground.xml</path>
+  </model>
+
+  <!-- Bloques de freins parking -->
+  <animation>
+    <type>select</type>
+    <object-name>freins</object-name>
+    <condition>
+      <equals>
+        <property>controls/gear/brake-parking</property>
+        <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!-- L'h�lice -->
+  <animation>
+    <name>HeliceComplete</name>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+    <object-name>helice</object-name>
+  </animation>
+
+  <!-- S�l�ction de l'objet visible en fonction des rpm -->
+  <animation>
+    <type>select</type>
+    <object-name>propdisc</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>1100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>propblur</object-name>
+    <condition>
+    <and>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>600.000</value>
+      </greater-than>
+      <less-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>1100.001</value>
+      </less-than>
+    </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>helice</object-name>
+    <condition>
+      <less-than>
+        <property>engines/engine[0]/rpm</property>
+        <value>1100</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>HeliceComplete</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value> 5 </value>
+      </greater-than>
+    </condition>
+    <property>engines/engine[0]/rpm</property>
+    <factor> -1 </factor>
+    <center>
+      <x-m> -2.845 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.035051 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Show/Hide MGs -->
+
+  <animation>
+    <type>select</type>
+    <object-name>lewismount</object-name>
+    <object-name>lewisMG.001</object-name>
+    <object-name>lewisdrum.001</object-name>
+    <object-name>mag_box</object-name>
+    <condition>
+        <property>controls/armament/lewismg[0]/install</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>lewisdrum_extra.001</object-name>
+    <condition>
+        <property>controls/armament/lewismg[0]/install</property>
+        <greater-than>
+          <property>controls/armament/lewismg[0]/magsleft</property>
+          <value>1</value>
+        </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>lewisdrum_extra.002</object-name>
+    <condition>
+        <property>controls/armament/lewismg[0]/install</property>
+        <greater-than>
+          <property>controls/armament/lewismg[0]/magsleft</property>
+          <value>2</value>
+        </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>lewisdrum_extra.003</object-name>
+    <condition>
+        <property>controls/armament/lewismg[0]/install</property>
+        <greater-than>
+          <property>controls/armament/lewismg[0]/magsleft</property>
+          <value>3</value>
+        </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>lewisdrum_extra.004</object-name>
+    <condition>
+        <property>controls/armament/lewismg[0]/install</property>
+        <greater-than>
+          <property>controls/armament/lewismg[0]/magsleft</property>
+          <value>4</value>
+        </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>gun_ring</object-name>
+    <object-name>lewisMG.002</object-name>
+    <object-name>lewisdrum.002</object-name>
+    <condition>
+        <property>controls/armament/lewismg[1]/install</property>
+    </condition>
+  </animation>
+
+  <!-- Gouverne de profondeur -->
+  <animation>
+    <type>rotate</type>
+    <object-name>profondeur</object-name>
+    <property>controls/flight/elevator</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m> 3.0402 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.44978 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Gouverne de direction -->
+  <animation>
+    <type>rotate</type>
+    <object-name>direction</object-name>
+    <property>controls/flight/rudder</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m> 3.10026 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.27571 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Pedals -->
+  <animation>
+    <type>rotate</type>
+    <object-name>pedals.003</object-name>
+    <property>controls/flight/rudder</property>
+    <factor> 10 </factor>
+    <center>
+      <x-m> -2.26262 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> -0.27949 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Stick -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>controlstick</object-name>
+    <property>/controls/flight/aileron</property>
+    <factor> -6 </factor>
+    <center>
+      <x-m> -1.91541 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> -0.20444 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>controlstick</object-name>
+    <property>/controls/flight/elevator</property>
+    <factor> -6 </factor>
+    <offset-deg>-16</offset-deg>
+    <center>
+      <x-m> -1.91541 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> -0.20444 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Animations des ailerons -->
+  <animation>
+    <type>rotate</type>
+    <object-name>aileronG</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m> -1.20235 </x1-m>
+      <y1-m> -4.43205 </y1-m>
+      <z1-m>  1.0651 </z1-m>
+      <x2-m> -1.19635 </x2-m>
+      <y2-m> -2.53785 </y2-m>
+      <z2-m>  1.03247 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>aileronD</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m> -1.19635 </x1-m>
+      <y1-m>  2.53785 </y1-m>
+      <z1-m>  1.03247 </z1-m>
+      <x2-m> -1.20235 </x2-m>
+      <y2-m>  4.43205 </y2-m>
+      <z2-m>  1.0651 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- Rotation des roues lors du roulage -->
+  <animation>
+    <type>spin</type>
+    <object-name>roueG</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m> -2.18311 </x-m>
+      <y-m> -0.94638 </y-m>
+      <z-m> -1.22921 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueD</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m> -2.18311 </x-m>
+      <y-m>  0.94638 </y-m>
+      <z-m> -1.22921 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>

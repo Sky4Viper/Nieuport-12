@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>panel.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>panel</object-name>
+    <object-name>plate_base</object-name>
+    <object-name>plate_screws</object-name>
+    <object-name>ignition</object-name>
+    <object-name>ignition_switch</object-name>
+
+    <!-- Objets transparents -->
+  </animation>
+
+  <!-- ASI -->
+  <model>
+    <path>Instruments/asi/asi.xml</path>
+    <offsets>
+      <x-m> -0.001 </x-m>
+      <y-m>  0.180 </y-m>
+      <z-m> -0.020 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Compass -->
+  <model>
+    <path>Instruments/compass/compass.xml</path>
+    <offsets>
+      <x-m>  -0.002 </x-m>
+      <y-m> -0.090 </y-m>
+      <z-m>  0.010 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Clock -->
+  <model>
+    <path>Instruments/clock/clock.xml</path>
+    <offsets>
+      <x-m>  -0.001 </x-m>
+      <y-m> 0.09 </y-m>
+      <z-m>  0.00 </z-m>
+    </offsets>
+  </model>
+
+  <!-- FUEL -->
+  <model>
+    <path>Instruments/fuel/fuel.xml</path>
+    <offsets>
+      <x-m>  -0.0005 </x-m>
+      <y-m> -0.210 </y-m>
+      <z-m> -0.050 </z-m>
+    </offsets>
+  </model>
+
+  <!-- TURN -->
+  <model>
+    <path>Instruments/turn/turn.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> -0.025 </z-m>
+    </offsets>
+  </model>
+
+  <!-- ALT -->
+  <model>
+    <path>Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m>  0.020 </x-m>
+      <y-m>  0.280 </y-m>
+      <z-m> -0.108 </z-m>
+      <heading-deg> -20 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Starter Switch -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ignition_switch</object-name>
+    <property>controls/switches/starter-switch</property>
+    <interpolation>
+      <entry>
+        <ind>0.0</ind>
+        <dep>-35</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>35</dep>
+      </entry>
+      <entry>
+        <ind>2</ind>
+        <dep>35</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>0.000097</x-m>
+      <y-m>-0.169502</y-m>
+      <z-m>-0.020387</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ignition_switch</object-name>
+    <property>controls/switches/starter-switch</property>
+    <interpolation>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>35</dep>
+      </entry>
+      <entry>
+        <ind>2</ind>
+        <dep>-35</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>0.000097</x-m>
+      <y-m>-0.169502</y-m>
+      <z-m>-0.020387</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+    <animation>
+    <type>pick</type>
+    <object-name>ignition_switch</object-name>
+    <visible>true</visible>
+    <action>
+      <name>increase mags</name>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/switches/starter-switch</property>
+        <step>1</step>
+        <min>0</min>
+        <max>3</max>
+        <wrap>true</wrap>
+      </binding>
+      <!-- Turn on systems -->
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+            setprop("controls/electric/battery-switch", 1);
+            setprop("controls/electric/engine/generator", 1);
+            setprop("controls/lighting/instrument-lights", 1);
+            setprop("controls/lighting/nav-lights", 1);
+            setprop("controls/lighting/beacon", 1);
+            setprop("controls/lighting/strobe", 1);
+            setprop("controls/switches/starterkey-insert", 1);
+            setprop("controls/engines/engine[0]/fuel-pump", 1);
+          ]]>
+        </script>
+        <condition>
+         <equals>
+          <property>controls/switches/starter-switch</property>
+          <value>1</value>
+         </equals>
+        </condition>
+      </binding>
+      <!-- Turn systems OFF -->
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+            setprop("controls/electric/battery-switch", 0);
+            setprop("controls/electric/engine/generator", 0);
+            setprop("controls/lighting/instrument-lights", 0);
+            setprop("controls/lighting/nav-lights", 0);
+            setprop("controls/lighting/beacon", 0);
+            setprop("controls/lighting/strobe", 0);
+            setprop("controls/switches/starterkey-insert", 0);
+            setprop("controls/engines/engine[0]/fuel-pump", 0);
+          ]]>
+          controls.startEngine(0,0)
+        </script>
+        <condition>
+         <equals>
+          <property>controls/switches/starter-switch</property>
+          <value>0</value>
+         </equals>
+        </condition>
+      </binding>
+      <!-- Magnetos ON -->
+      <binding>
+        <condition>
+          <property>controls/switches/starterkey-insert</property>
+          <equals>
+           <property>controls/switches/starter-switch</property>
+           <value>1</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property>controls/engines/engine[0]/magnetos</property>
+        <value>3</value>
+      </binding>
+      <!-- Magnetos OFF -->
+      <binding>
+        <condition>
+          <not><property>controls/switches/starterkey-insert</property></not>
+          <equals>
+           <property>controls/switches/starter-switch</property>
+           <value>0</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property>controls/engines/engine[0]/magnetos</property>
+        <value>0</value>
+      </binding>
+
+      <binding>
+        <condition>
+         <equals>
+          <property>controls/switches/starter-switch</property>
+          <value>2</value>
+         </equals>
+        </condition>
+        <command>nasal</command>
+        <script>controls.startEngine(0,0)</script>
+      </binding>
+      
+      <binding>
+        <condition>
+          <property>controls/switches/starterkey-insert</property>
+          <equals>
+           <property>controls/switches/starter-switch</property>
+            <value>1</value>
+          </equals>
+        </condition>
+        <command>nasal</command>
+        <script>gui.popupTip("Press 's' to start")</script>
+      </binding>
+
+      <binding>
+        <condition>
+          <property>controls/switches/starterkey-insert</property>
+          <equals>
+           <property>controls/switches/starter-switch</property>
+            <value>2</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property>controls/engines/engine[0]/starter</property>
+        <value>1</value>
+      </binding>
+      <!-- Switch Click Sound -->
+      <binding>
+        <command>nasal</command>
+        <script>switchclicksound.click("switch1")</script>
+      </binding>
+
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/engines/engine[0]/starter</property>
+          <value>false</value>
+        </binding>
+      </mod-up>
+
+    </action>
+  </animation>
+
+</PropertyList>

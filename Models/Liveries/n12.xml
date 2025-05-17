@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim>
+
+    <model>
+      <livery>
+        <name type="string">N 12</name>
+        <texture>Liveries/2048x2048/n12.png</texture>
+        <specular>
+          <red>   0.25 </red>
+          <green> 0.25 </green>
+          <blue>  0.25 </blue>
+        </specular>
+      </livery>
+    </model>
+
+  </sim>
+
+</PropertyList>

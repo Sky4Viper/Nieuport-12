@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>fuel.ac</path>
+
+  <animation>
+    <!-- <object-name>fond</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name> -->
+
+    <object-name>f_base</object-name>
+    <object-name>f_cutoff_handle</object-name>
+    <object-name>f_level</object-name>
+    <object-name>f_locking_pin</object-name>
+    <object-name>f_locking_ring</object-name>
+    <object-name>f_main_base</object-name>
+    <object-name>f_mount</object-name>
+    <object-name>f_pipe</object-name>
+    <object-name>f_screws</object-name>
+    <object-name>f_spring</object-name>
+
+    <!-- <object-name>vitre</object-name> -->
+    <object-name>f_outer_glass</object-name>
+    <object-name>f_inner_glass</object-name>
+    <object-name>f_fuel</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>f_base</object-name>
+    <object-name>f_cutoff_handle</object-name>
+    <object-name>f_level</object-name>
+    <object-name>f_locking_pin</object-name>
+    <object-name>f_locking_ring</object-name>
+    <object-name>f_main_base</object-name>
+    <object-name>f_mount</object-name>
+    <object-name>f_pipe</object-name>
+    <object-name>f_screws</object-name>
+    <object-name>f_spring</object-name>
+    <object-name>f_outer_glass</object-name>
+    <object-name>f_inner_glass</object-name>
+    <object-name>f_fuel</object-name>
+  </animation>
+
+  <!-- working for Compositor -->
+  <effect>
+    <inherits-from>../../../../Effects/Glass/glass</inherits-from>
+    <object-name>f_outer_glass</object-name>
+    <object-name>f_inner_glass</object-name>
+    <object-name>f_fuel</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>f_inner_glass</object-name>
+    <object-name>f_fuel</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.40 </green>
+      <blue>  0.30 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>f_level</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <red>   0.05 </red>
+      <green> 0.04 </green>
+      <blue>  0.03 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>f_level</object-name>
+    <property>consumables/fuel/total-fuel-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.027 </dep></entry>
+    </interpolation>
+    <condition>
+      <property>consumables/fuel/tank[0]/selected</property>
+    </condition>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+	<animation>
+		<type>scale</type>
+    <object-name>f_fuel</object-name>
+    <property>consumables/fuel/total-fuel-norm</property>
+    <condition>
+      <property>consumables/fuel/tank[0]/selected</property>
+    </condition>
+		<x-min>1</x-min>
+		<y-min>1</y-min>
+		<z-min>0.0001</z-min>
+		<x-factor>0</x-factor>
+		<y-factor>0</y-factor>
+		<z-factor>1.0</z-factor>
+    <center>
+     <x-m>0.018249</x-m>
+     <y-m>0.0</y-m>
+		 <z-m>0.016595</z-m>
+    </center>
+	</animation>
+
+  <!-- <animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <property>consumables/fuel/total-fuel-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 15 </dep></entry>
+      <entry><ind> 1 </ind><dep> 80 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 0.0016233 </x-m>
+      <y-m> 0.0000000 </y-m>
+      <z-m> 0.0219562 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation> -->
+
+  <animation>
+    <type>pick</type>
+    <object-name>f_cutoff_handle</object-name>
+    <visible>true</visible>
+    <action>
+      <name>fuel pump valve</name>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>consumables/fuel/tank[0]/selected</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>f_cutoff_handle</object-name>
+   <property>consumables/fuel/tank[0]/selected</property>
+   <interpolation>
+      <entry><ind> 0 </ind><dep> 90 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0 </dep></entry>
+    </interpolation>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>0.019036</x-m>
+   <y-m>-0.0151</y-m>
+   <z-m>-0.016994</z-m>
+  </center>
+ </animation>
+
+</PropertyList>

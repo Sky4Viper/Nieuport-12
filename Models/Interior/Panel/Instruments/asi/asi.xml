@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>asi.ac</path>
+
+  <animation>
+    <object-name>fond</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+
+    <object-name>vitre</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>fond</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <object-name>vitre</object-name>
+  </animation>
+
+  <!-- working for Compositor -->
+  <effect>
+    <inherits-from>../../../../Effects/Glass/glass</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>bezelinside</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.40 </green>
+      <blue>  0.30 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <interpolation>
+      <entry><ind>   0.00 </ind><dep>   0 </dep></entry> <!--   0 km/h -->
+      <entry><ind>  32.39 </ind><dep>  25 </dep></entry> <!--  60 km/h -->
+      <entry><ind>  53.99 </ind><dep>  55 </dep></entry> <!-- 100 km/h -->
+      <entry><ind>  75.59 </ind><dep>  98 </dep></entry> <!-- 140 km/h -->
+      <entry><ind>  97.19 </ind><dep> 160 </dep></entry> <!-- 180 km/h -->
+      <entry><ind> 107.99 </ind><dep> 200 </dep></entry> <!-- 200 km/h -->
+      <entry><ind> 118.79 </ind><dep> 248 </dep></entry> <!-- 220 km/h -->
+      <entry><ind> 129.59 </ind><dep> 295 </dep></entry> <!-- 240 km/h -->
+      <entry><ind> 140.38 </ind><dep> 346 </dep></entry> <!-- 260 km/h -->
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>

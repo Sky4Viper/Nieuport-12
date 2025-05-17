@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<PropertyList include="ni-12-wingman.xml">
+ <texture-path>Textures/N12</texture-path>
+
+</PropertyList>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>bullet_blank.ac</path>
+
+  <!-- Smoke -->
+
+  <model>
+    <name>smoke</name>
+    <path>apibullet-smoke.xml</path>
+    <offsets>
+      <x-m>  10.00000 </x-m>
+      <y-m>   0.00000 </y-m>
+      <z-m>  0.43238 </z-m>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>smoke</object-name>
+  </animation>
+
+</PropertyList>
