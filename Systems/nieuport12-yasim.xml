@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Nieuport 12 A.2  : Sergei Solyshko          (05-2025)
+
+     Source       : https://en.wikipedia.org/wiki/Nieuport_12
+
+     Wingspan     : 9.0 m    (   29 ft  6   in )
+     Length       : 7.1 m    (   23 ft  4   in )
+     Height       : 2.7 m    (    8 ft 1 in )
+     Empty weight: 550 kg (1,213 lb)
+     Gross weight: 825 kg (1,819 lb)
+     Engine       : Clerget 9Z 9 cylinder air-cooled rotary engine, 82 kW ( 110 hp )
+     Max speed    : 146 km/h (  79 kt          ) at 2,000 m (6,600 ft)
+     Propellers: 2-bladed, wood fixed pitch propeller
+     2.50 m (8 ft 2 in) Regy 274 or 
+     2.55 m (8 ft 4 in) Regy 289 or 
+     2.53 m (8 ft 4 in) Eclair 2
+-->
+
+<airplane mass="1213" version="YASIM_VERSION_CURRENT" mtow-lbs="1819">
+
+  <approach speed="37" aoa="0" fuel="0.3">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.20"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture"  value="0.65"/>
+  </approach>
+
+  <!-- meathod 2 -->
+  <cruise speed="63" alt="6600" fuel="0.7" >
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.80" />
+    <control-setting axis="/controls/engines/engine[0]/mixture"  value="0.65" />
+  </cruise>
+
+  <cockpit x="1.240" y="0.00" z="0.702"/>
+
+  <!-- fuselage -->
+  <fuselage ax=" 3.024" ay=" 0.000" az=" 0.035" bx=" 2.705" by=" 0.000" bz=" 0.035" width="1.106" taper="0.80" midpoint="1"/>
+  <fuselage ax=" 2.705" ay=" 0.000" az=" 0.035" bx=" 2.484" by=" 0.000" bz=" 0.035" width="1.106" taper="1.00" midpoint="1"/>
+  <fuselage ax=" 2.484" ay=" 0.000" az=" 0.035" bx=" 2.323" by=" 0.000" bz=" 0.035" width="1.106" taper="0.90" midpoint="0"/>
+  <fuselage ax=" 2.323" ay=" 0.000" az=" 0.035" bx=" 0.241" by=" 0.000" bz=" 0.035" width="1.012" taper="1.00" midpoint="0"/>
+  <fuselage ax=" 0.241" ay=" 0.000" az=" 0.035" bx="-0.777" by=" 0.000" bz=" 0.133" width="1.012" taper="0.70" midpoint="0"/>
+  <fuselage ax="-0.777" ay=" 0.000" az=" 0.133" bx="-3.086" by=" 0.000" bz=" 0.271" width="0.708" taper="0.35" midpoint="0"/>
+
+  <!-- Wing up -->
+  <wing x="1.625" y="0" z="1.075"
+        chord="1.446"
+        length="4.5"
+        sweep="2.64"
+        taper="1"
+        incidence="4"
+        camber="0.005">
+        <stall aoa="20"   width="1" peak="1.5"/>
+        <flap1 start="0.56" end="1" lift="1.5" drag="1.2"/>
+
+        <control-input  control="FLAP1" axis="/controls/flight/aileron"      split="true"/>
+        <control-input  control="FLAP1" axis="/controls/flight/aileron-trim" split="true"/>
+
+        <control-output control="FLAP1" side="left"  prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+  </wing>
+
+  <!-- Wing down -->
+  <wing x="1.281" y="0.490" z="-0.377"
+        append="1"
+        chord="0.725"
+        length="3.222"
+        sweep="5.52"
+        taper="1"
+        incidence="4"
+        dihedral="1.5">
+        <!-- <stall aoa="20" width="1" peak="1.5"/> -->
+  </wing>
+
+  <hstab x="-3.034" y="0" z="0.449"
+         chord="0.993"
+         length="1.773"
+         taper="1">
+         <stall aoa="18" width="1" peak="1.5"/>
+         <flap0 start="0"  end="1" lift="1.2" drag="1.1"/>
+
+         <control-input  control="FLAP0" axis="/controls/flight/elevator"/>
+         <control-input  control="FLAP0" axis="/controls/flight/elevator-trim"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-3.334" y="0" z="0.076"
+         chord="0.933"
+         length="1.038"
+         taper="1">
+         <stall aoa="16" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.4" drag="1.1"/>
+
+         <control-input  control="FLAP0" axis="/controls/flight/rudder"      square="true" invert="true"/>
+         <control-input  control="FLAP0" axis="/controls/flight/rudder-trim" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+  
+  <!-- Engines      : Clerget 9B
+
+       Informations : https://en.wikipedia.org/wiki/Clerget_9B
+
+       Type         : Nine-cylinder, single-row rotary engine
+       Power        : 97 kW (130 hp) at 1,250 rpm
+       Displacement : 16.29 L (994.08 cu in)
+       Masse        : 173 kg   (381 lb)
+       Compression  : 4.56:1
+  -->
+  <propeller x="3.114" y="0" z="0.03505"
+             mass="268"
+             radius="1.25"
+             moment="4"
+             cruise-power="80"
+             cruise-rpm="1150"
+             cruise-speed="63"
+             cruise-alt="5000"
+             takeoff-power="97"
+             takeoff-rpm="1250">
+             <actionpt x="3.224" y="0" z="0.03505"/>
+             <piston-engine eng-power="111"
+                            eng-rpm="1250"
+                            alt="5000"
+                            displacement="994.08"
+                            compression="4.56">
+                            <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+                            <control-input control="STARTER"  axis="/controls/engines/engine[0]/starter"/>
+                            <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+                            <control-input control="MIXTURE"  axis="/controls/engines/engine[0]/mixture"/>
+             </piston-engine>
+  </propeller>
+
+  <!-- Left wheel -->
+  <gear x="2.1125" y="0.93777" z="-1.60079"
+        compression="0.15"
+        sfric="1.1"
+        dfric="0.6"
+        stiction="1">
+        <control-input control="BRAKE" axis="/controls/gear/brake-parking" split="true"/>
+        <control-input control="STEER" axis="/sim/gears/toe-left"/>
+  </gear>
+
+  <!-- Right wheel -->
+  <gear x="2.1125" y="-0.93777" z="-1.60079"
+        compression="0.15"
+        sfric="1.1"
+        dfric="0.6"
+        stiction="1">
+        <control-input control="BRAKE" axis="/controls/gear/brake-parking" split="true"/>
+        <control-input control="STEER" axis="/sim/gears/toe-right"/>
+  </gear>
+
+  <!-- Tail wheel -->
+  <gear x="-3.06204" y="0" z="-0.2339"
+        compression="0.10"
+        sfric="1.1"
+        dfric="0.6"
+        stiction="1">
+        <control-input control="STEER" axis="/controls/flight/rudder" src0="-1.0" src1="1.0" dst0="0.5" dst1="-0.5"/>
+  </gear>
+
+  <!-- Fuel: Forward 142 lbs -->
+  <tank x="2.256" y="0" z="-0.036" capacity="142"/>
+
+  <!-- Mass distribution
+       Dilbert : The cg should be about 1/6 chord ahead of the chord center.
+                 1.446 / 6     = 0.241
+                 1.625 + 0.241 = 1.886 - 1.772 yet
+  -->
+  <ballast x="1.330" y="0" z="-0.24" mass="150"/>
+
+</airplane>

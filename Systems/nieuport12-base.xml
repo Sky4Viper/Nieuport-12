@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim include="views.xml">
+
+    <fuel-fraction>1.0</fuel-fraction>
+
+    <startup>
+      <splash-texture>Aircraft/Nieuport-12/nieuport12-splash.png</splash-texture>
+    </startup>
+
+    <sound>
+      <path archive="y">Aircraft/Nieuport-12/Sounds/nieuport12-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Nieuport-12/Models/nieuport12.xml</path>
+      <livery>
+        <file type="string"></file>
+      </livery>
+    </model>
+    
+    <ai>
+      <scenario n="101">nieuport_wingman_36</scenario>
+    </ai>
+
+    <systems include="rules.xml"/>
+
+    <submodels>
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/Nieuport-12/Models/Effects/guns/submodels.xml</path>
+    </submodels>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic>
+        <int    n="0"  type="int">0</int>
+        <int    n="1"  type="int">0</int>
+        <int    n="2"  type="int">0</int>
+        <int    n="3"  type="int">0</int>
+        <int    n="4"  type="int">0</int>
+        <int    n="5"  type="int">0</int>
+        <int    n="6"  type="bool">1</int>
+        <int    n="7"  type="int">0</int>
+        <int    n="8"  alias="/systems/electrical/outputs/nav-lights">0</int>
+        <int    n="9"  alias="/sim/model/lights/beacon/state">false</int>
+        <float  n="0"  alias="/sim/model/door-positions/crew/position-norm"/>
+        <float  n="1"  alias="/sim/model/door-positions/passenger/position-norm"/>
+        <float  n="2"  alias="/position/gear-agl-m">0</float>
+        <float  n="3"  alias="/position/altitude-ft">0</float>
+        <float  n="4"  alias="/engines/engine[0]/rpm"/>
+        <float  n="5"  type="bool" alias="/engines/engine[0]/cranking"/>
+        <float  n="6"  alias="/gear/gear[0]/wow/"/>
+        <float  n="7"  alias="/gear/gear[1]/wow/"/>
+        <float  n="8"  alias="/gear/gear[2]/wow/"/>
+        <float  n="9"  alias="/gear/gear[0]/rollspeed-ms"/>
+        <float  n="10" alias="/gear/gear[1]/rollspeed-ms"/>
+        <float  n="11" alias="/gear/gear[2]/rollspeed-ms"/>
+        <float  n="12"  type="float"/>
+				<float  n="13"  type="float"/>
+				<float  n="14"  type="float"/>
+        <!-- For Bombable -->
+        <int    n="10" type="int" alias="controls/armament/trigger">0</int>
+        <string n="9"  type="string" />
+      </generic>
+    </multiplay>
+
+    <help include="help.xml"/>
+
+    <menubar include="../gui/nieuport12-menu.xml"/>
+
+    <gears include="gears.xml"/>
+
+  </sim>
+
+  <input include="nieuport12-keyboard.xml"/>
+
+  <controls include="controls.xml"/>
+
+  <consumables include="consumables.xml"/>
+
+  <nasal>
+    <nieuport12>
+      <file>Aircraft/Nieuport-12/Nasal/nieuport12.nas</file>
+      <file>Aircraft/Nieuport-12/Nasal/liveries.nas</file>
+      <file>Aircraft/Nieuport-12/Nasal/convert.nas</file>
+      <file>Aircraft/Nieuport-12/Nasal/Electrical.nas</file>
+      <file>Aircraft/Nieuport-12/Nasal/nieuport12-utils.nas</file>
+			<file>Aircraft/Nieuport-12/Nasal/yawstring.nas</file>
+    </nieuport12>
+    <switchclicksound>
+      <file>Aircraft/Nieuport-12/Nasal/switchclicksound.nas</file>
+    </switchclicksound>
+    <guns>
+      <file>Aircraft/Nieuport-12/Nasal/weapons.nas</file>
+    </guns>
+  </nasal>
+
+</PropertyList>

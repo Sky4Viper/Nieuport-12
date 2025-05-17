@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+    <name>configuration</name>
+    <modal type="bool">false</modal>
+    <draggable>true</draggable>
+    <resizable>true</resizable>
+    <width>725</width>
+    <layout>vbox</layout>
+    
+    <group>
+        <layout>hbox</layout>
+        <empty>
+            <stretch>1</stretch>
+        </empty>
+        
+        <text>
+            <label>Nieuport-12 A.2 Configuration</label>
+        </text>
+        
+        <empty>
+            <stretch>1</stretch>
+        </empty>
+        
+        <button>
+            <pref-width>16</pref-width>
+            <pref-height>16</pref-height>
+            <legend></legend>
+            
+            <default>1</default>
+            <keynum>27</keynum>
+            <border>2</border>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+        </button>
+    </group>
+    
+    <hrule/>
+    
+    <group>
+        <layout>hbox</layout>
+        
+        <button>
+            <legend>Repair damage</legend>
+            <binding>
+                <command>nasal</command>
+                <script>switchclicksound.click("switch1",0.2)</script>
+            </binding>
+            <binding>
+              <command>nasal</command>
+              <script>gui.popupTip("Not implemented yet")</script>
+            </binding>
+        </button>
+        
+        <vrule/>
+        
+        <button>
+            <legend>Reload machine gun No.1</legend>
+            <binding>
+                <command>nasal</command>
+                <script>switchclicksound.click("reload",1.1)</script>
+                <condition>
+                  <property>controls/armament/lewismg[0]/install</property>
+                    <greater-than>
+                      <property>controls/armament/lewismg[0]/magsleft</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>guns.reload_guns();</script>
+            </binding>
+        </button>
+        
+        <vrule/>
+        
+        <button>
+            <legend>Refill machine gun drums</legend>
+            <binding>
+                <command>nasal</command>
+                <script>switchclicksound.click("ammo",0.9)</script>
+                <condition>
+                  <property>controls/armament/lewismg[0]/install</property>
+                  <property>/gear/gear[2]/wow</property>
+                  <not>
+                    <property>/engines/engine/running</property>
+                  </not>
+                  <less-than>
+                    <property>/engines/engine/rpm</property>
+                    <value>100</value>
+                  </less-than>
+                </condition>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>guns.refill_drums();</script>
+            </binding>
+        </button>
+        
+        <vrule/>
+        
+        <button>
+            <legend>Unlimited guns</legend>
+            <binding>
+                <command>nasal</command>
+                <script>guns.unlimited_guns();</script>
+            </binding>
+        </button>
+    </group>
+    
+    <hrule/>
+    
+    <group>
+        <layout>table</layout>
+        
+        <button>
+            <pref-width>225</pref-width><pref-height>23</pref-height>
+            <row>0</row>
+            <col>0</col>
+            <legend>Empty</legend>
+            <binding>
+                <command>nasal</command>
+                <script>switchclicksound.click("switch1")</script>
+            </binding>
+        </button>
+
+    </group>
+
+    <hrule/>
+    
+    <group>
+        <layout>hbox</layout>
+
+        <empty>
+            <stretch>1</stretch>
+        </empty>
+
+        <checkbox>
+            <label>Lewis Machine Gun No.1</label>
+            <property>controls/armament/lewismg[0]/install</property>
+            <live>true</live>
+            <binding>
+             <command>nasal</command>
+              <script>
+                <![CDATA[
+                 setprop("controls/armament/lewismg[0]/install",!getprop("controls/armament/lewismg[0]/install"));
+                 ## screen.log.write("Lewis Machine Gun #1 "~(getprop("controls/armament/lewismg[1]/install")==0?"- Removed":"- Mounted"), 1, 1, 0);
+                 gui.popupTip("Lewis Machine Gun #1 "~(getprop("controls/armament/lewismg[0]/install")==0?"- Removed":"- Mounted"));
+                ]]>
+              </script>
+            </binding>
+        </checkbox>
+        
+        <empty>
+            <stretch>1</stretch>
+        </empty>
+
+        <checkbox>
+            <label>Lewis Machine Gun No.2</label>
+            <property>controls/armament/lewismg[1]/install</property>
+            <live>true</live>
+            <binding>
+             <command>nasal</command>
+              <script>
+                <![CDATA[
+                 setprop("controls/armament/lewismg[1]/install",!getprop("controls/armament/lewismg[1]/install"));
+                 ## screen.log.write("Lewis Machine Gun #2 "~(getprop("controls/armament/lewismg[1]/install")==0?"- Removed":"- Mounted"), 1, 1, 0);
+                 gui.popupTip("Lewis Machine Gun #2 "~(getprop("controls/armament/lewismg[1]/install")==0?"- Removed":"- Mounted"));
+                ]]>
+              </script>
+            </binding>
+        </checkbox>
+
+        <empty>
+            <stretch>1</stretch>
+        </empty>
+
+        <checkbox>
+            <label>Wingman No.11</label>
+            <property>sim/ai/scenario[102]</property>
+            <live>true</live>
+            <binding>
+             <command>nasal</command>
+              <script>
+                <![CDATA[
+                 var wingman="nieuport_wingman_11";
+                 setprop("sim/ai/scenario[102]",wingman);
+                 gui.popupTip("Wingman No 11 added");
+                ]]>
+              </script>
+            </binding>
+        </checkbox>
+        
+        <empty>
+            <stretch>1</stretch>
+        </empty>
+    </group>
+    
+    <empty><stretch>1</stretch></empty>
+</PropertyList>
+

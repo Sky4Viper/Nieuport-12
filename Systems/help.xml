@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <title>Nieuport 12 A.2</title>
+  <line>______________________________________________</line>
+  <key>
+    <name>}</name>
+    <desc>AutoStart/AutoStop</desc>
+  </key>
+  <key>
+    <name>e</name>
+    <desc>Guns fire</desc>
+  </key>
+  <key>
+    <name>r</name>
+    <desc>Reload forward gun</desc>
+  </key>
+
+</PropertyList>

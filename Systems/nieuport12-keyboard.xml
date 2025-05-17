@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <keyboard>
+
+    <!-- <key n="101">
+      <name>e</name>
+      <desc>Guns</desc>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/armament/trigger</property>
+        <value>true</value>
+        <condition>
+          <property>controls/armament/lewismg[0]/install</property>
+        </condition>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/armament/trigger</property>
+          <value>false</value>
+        </binding>
+      </mod-up>
+    </key> -->
+
+   <key n="101">
+     <name>e</name>
+     <desc>Guns</desc>
+     <binding>
+       <command>nasal</command>
+       <script>guns.fire_MG()</script>
+        <condition>
+          <property>controls/armament/lewismg[0]/install</property>
+        </condition>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>nasal</command>
+         <script>guns.stop_MG()</script>
+       </binding>
+     </mod-up>
+   </key>
+
+   <key n="114">
+     <name>r</name>
+     <desc>Reload guns</desc>
+       <binding>
+         <command>nasal</command>
+         <script>switchclicksound.click("reload",0.9)</script>
+           <condition>
+             <property>controls/armament/lewismg[0]/install</property>
+             <greater-than>
+               <property>controls/armament/lewismg[0]/magsleft</property>
+               <value>1</value>
+             </greater-than>
+           </condition>
+       </binding>
+       <binding>
+         <command>nasal</command>
+              <script>
+                <![CDATA[
+                 setprop("/sim/view[101]/enabled", true);
+                 setprop("/sim/current-view/view-number-raw", 101);
+                ]]>
+              </script>
+       </binding>
+     <mod-up>
+       <binding>
+         <command>nasal</command>
+         <script>guns.reload_guns();</script>
+       </binding>
+       <binding>
+         <command>nasal</command>
+              <script>
+                <![CDATA[
+                 setprop("/sim/current-view/view-number-raw", 0);
+                 setprop("/sim/view[101]/enabled", false);
+                ]]>
+              </script>
+       </binding>
+     </mod-up>
+   </key>
+
+    <key n="125">
+      <name>}</name>
+      <desc>AutoStart/AutoStop</desc>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/battery-switch</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/engine/generator</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/instrument-lights</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/nav-lights</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/beacon</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/strobe</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/starterkey-insert</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/engines/engine[0]/fuel-pump</property>
+      </binding>
+      <!-- Magnetos ON -->
+      <binding>
+        <condition>
+          <property>controls/switches/starterkey-insert</property>
+        </condition>
+        <command>property-assign</command>
+        <property>controls/engines/engine[0]/magnetos</property>
+        <value>3</value>
+      </binding>
+      <!-- Magnetos OFF -->
+      <binding>
+        <condition>
+          <not><property>controls/switches/starterkey-insert</property></not>
+        </condition>
+        <command>property-assign</command>
+        <property>controls/engines/engine[0]/magnetos</property>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>controls.startEngine(0,0)</script>
+      </binding>
+      <binding>
+        <condition>
+          <property>controls/switches/starterkey-insert</property>
+        </condition>
+        <command>nasal</command>
+        <script>gui.popupTip("Press 's' to start")</script>
+      </binding>
+    </key>
+
+  </keyboard>
+
+</PropertyList>
