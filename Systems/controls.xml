@@ -51,11 +51,13 @@
   <armament>
     <lewismg           n="0">
       <install             type="bool">true</install>
+      <unlimited-ammo      type="bool">false</unlimited-ammo>
       <roundsleft          type="float">65</roundsleft>
       <magsleft            type="float">5</magsleft>
     </lewismg>
     <lewismg           n="1">
       <install             type="bool">true</install>
+      <unlimited-ammo      type="bool">false</unlimited-ammo>
       <roundsleft          type="float">65</roundsleft>
       <magsleft            type="float">5</magsleft>
     </lewismg>

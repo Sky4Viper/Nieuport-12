@@ -53,7 +53,7 @@
           <alpha><value> 1.0 </value></alpha>
         </color>
         <size>
-          <value> 2 </value>
+          <value> 1 </value>
         </size>
       </start>
 
@@ -65,16 +65,16 @@
           <alpha><value> 0.1 </value></alpha>
         </color>
         <size>
-          <value> 10 </value>
+          <value> 5 </value>
         </size>
       </end>
 
       <life-sec>
-        <value> 0.5 </value>
+        <value> 0.25 </value>
       </life-sec>
 
       <mass-kg>  5 </mass-kg>
-      <radius-m> 0.5 </radius-m>
+      <radius-m> 0.25 </radius-m>
     </particle>
 
     <program>

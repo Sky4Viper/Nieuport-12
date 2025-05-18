@@ -51,7 +51,7 @@
             </binding>
             <binding>
               <command>nasal</command>
-              <script>gui.popupTip("Not implemented yet")</script>
+              <script>gui.popupTip("Sorry, not implemented yet")</script>
             </binding>
         </button>
         
@@ -104,10 +104,14 @@
         <vrule/>
         
         <button>
-            <legend>Unlimited guns</legend>
+            <legend>Refuel</legend>
             <binding>
                 <command>nasal</command>
-                <script>guns.unlimited_guns();</script>
+                <script>switchclicksound.click("switch1",0.2)</script>
+            </binding>
+            <binding>
+              <command>nasal</command>
+              <script>gui.popupTip("Sorry, not implemented yet")</script>
             </binding>
         </button>
     </group>
@@ -180,16 +184,32 @@
         </empty>
 
         <checkbox>
-            <label>Wingman No.11</label>
-            <property>sim/ai/scenario[102]</property>
+            <label>Unlimited ammo</label>
+            <property>/controls/armament/lewismg[0]/unlimited-ammo</property>
+            <live>true</live>
+            <binding>
+                <command>nasal</command>
+                <script>guns.unlimited_ammo_guns();</script>
+            </binding>
+        </checkbox>
+
+        <empty>
+            <stretch>1</stretch>
+        </empty>
+
+        <checkbox>
+            <label>Bullet impact</label>
+            <property>/ai/submodels/submodel[0]/collision</property>
             <live>true</live>
             <binding>
              <command>nasal</command>
-              <script>
+             <script>
                 <![CDATA[
-                 var wingman="nieuport_wingman_11";
-                 setprop("sim/ai/scenario[102]",wingman);
-                 gui.popupTip("Wingman No 11 added");
+                 setprop("/ai/submodels/submodel[0]/collision",!getprop("/ai/submodels/submodel[0]/collision"));
+                 setprop("/ai/submodels/submodel[0]/impact",!getprop("/ai/submodels/submodel[0]/impact"));
+                 setprop("/ai/submodels/submodel[1]/collision",!getprop("/ai/submodels/submodel[1]/collision"));
+                 setprop("/ai/submodels/submodel[1]/impact",!getprop("/ai/submodels/submodel[1]/impact"));
+                 gui.popupTip("PERFORMANCE WARNING! Bullet impact "~(getprop("/ai/submodels/submodel[0]/impact")==0?"- Low count (per tracer)":"- High count (per bullet)"));
                 ]]>
               </script>
             </binding>

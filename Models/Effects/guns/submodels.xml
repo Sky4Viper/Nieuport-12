@@ -5,7 +5,6 @@
   <cannon>
     <model>Aircraft/Nieuport-12/Models/Effects/guns/bullet_blank.xml</model>
     <trigger>controls/armament/trigger</trigger>
-    <!-- <speed>2755.9</speed> -->
     <speed>2440</speed>
     <repeat>true</repeat>
     <delay>0.017</delay>
@@ -17,10 +16,10 @@
     <cd>0.193</cd>
     <eda>0.00338158219</eda>
     <fuse-range>0</fuse-range>
-    <collision>true</collision>
+    <collision>false</collision> <!-- disabled to improve performance, using tracer instead -->
     <collision-report>sim/ai/aircraft/collision/gun</collision-report>
     <expiry>true</expiry>
-    <impact>true</impact>
+    <impact>false</impact> <!-- disabled to improve performance, using tracer instead -->
     <impact-report>sim/ai/aircraft/impact/bullet</impact-report>
     <impact-reports>sim/ai/aircraft/collision/cannon</impact-reports>
     <submodel-path>Aircraft/Nieuport-12/Models/Effects/guns/bullet-submodel.xml</submodel-path>
@@ -31,7 +30,7 @@
     <trigger>controls/armament/trigger</trigger>
     <speed>2440</speed>
     <repeat>true</repeat>
-    <delay>0.085</delay>
+    <delay>0.085</delay> <!-- 1 tracer for 5 bullets -->
     <yaw-offset>0</yaw-offset>
     <pitch-offset>0</pitch-offset>
     <life>40</life>
@@ -40,10 +39,10 @@
     <cd>0.193</cd>
     <eda>0.00338158219</eda>
     <fuse-range>0</fuse-range>
-    <collision>true</collision>
+    <collision>true</collision> <!-- using tracer instead for better performance -->
     <collision-report>sim/ai/aircraft/collision/gun</collision-report>
     <expiry>true</expiry>
-    <impact>false</impact>
+    <impact>true</impact><!-- using tracer instead for better performance -->
     <impact-report>sim/ai/aircraft/impact/bullet</impact-report>
     <impact-reports>sim/ai/aircraft/collision/cannon</impact-reports>
     <submodel-path>Aircraft/Nieuport-12/Models/Effects/guns/bullet-submodel.xml</submodel-path>
@@ -82,7 +81,7 @@
     <model alias="../../tracer/model"/>
     <trigger alias="../../cannon/trigger"/>
     <speed alias="../../cannon/speed"/>
-    <repeat alias="../../cannon/repeat"/>
+    <repeat alias="../../tracer/repeat"/>
     <delay alias="../../tracer/delay"/>
     <count>13</count>           <!-- -1 = infini -->
     <x-offset> 6.54 </x-offset> <!-- -1.992 m = 6.54 ft -->
@@ -97,12 +96,12 @@
     <eda alias="../../cannon/eda"/>
     <fuse-range alias="../../cannon/fuse-range"/>
     <collision alias="../../tracer/collision"/>
-    <collision-report alias="../../cannon/collision-report"/>
-    <expiry alias="../../cannon/expiry"/>
-    <impact alias="../../cannon/impact"/>
-    <impact-report alias="../../cannon/impact-report"/>
-    <impact-reports alias="../../cannon/impact-reports"/>
-    <submodel-path alias="../../cannon/submodel-path"/>
+    <collision-report alias="../../tracer/collision-report"/>
+    <expiry alias="../../tracer/expiry"/>
+    <impact alias="../../tracer/impact"/>
+    <impact-report alias="../../tracer/impact-report"/>
+    <impact-reports alias="../../tracer/impact-reports"/>
+    <submodel-path alias="../../tracer/submodel-path"/>
   </submodel>
 
 </PropertyList>

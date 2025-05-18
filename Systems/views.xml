@@ -42,8 +42,8 @@
       <from-model type="bool">true</from-model>
       <from-model-idx type="int">0</from-model-idx>
       <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
-      <x-offset-m archive="y"> 0.000 </x-offset-m> <!--Right-->
-      <y-offset-m archive="y"> 1.36822 </y-offset-m> <!--Up-->
+      <x-offset-m archive="y"> -0.1831 </x-offset-m> <!--Right-->
+      <y-offset-m archive="y"> 1.40878 </y-offset-m> <!--Up-->
       <z-offset-m archive="y"> -0.9 </z-offset-m> <!--Back-->
       <pitch-offset-deg type="double">5</pitch-offset-deg>
       <heading-offset-deg>0</heading-offset-deg>

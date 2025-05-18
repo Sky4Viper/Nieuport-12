@@ -20,6 +20,7 @@ var ammo_weight=1.4/20; # 20 rounds of .303 180gr ammo weighs 1.4 pounds
 var t_gun_ammo_count="/ai/submodels/submodel[0]/count";  
 var t_gun_tracer_count="/ai/submodels/submodel[1]/count";
 var mags_load="/controls/armament/lewismg[0]/magsleft";
+var t_unlimited_ammo="/controls/armament/lewismg[0]/unlimited-ammo";
 
 reload_guns  = func {
 
@@ -36,6 +37,7 @@ reload_guns  = func {
     setprop ( t_gun_ammo_count, 65); #ammo
     setprop ( t_gun_tracer_count, 13); #tracer
     setprop ( mags_load, mags_left-1); #drum
+    setprop ( t_unlimited_ammo, false); #checkbox
     
     gui.popupTip ("Gun reloaded--65 rounds ammo drum.", 5)
     
@@ -59,6 +61,7 @@ refill_drums  = func {
     setprop ( t_gun_ammo_count, 65); #ammo
     setprop ( t_gun_tracer_count, 13); #tracer
     setprop ( mags_load, 5); #drum
+    setprop ( t_unlimited_ammo, false); #checkbox
     
     gui.popupTip ("5 Ammunition drums loaded--65 rounds each", 5)
     
@@ -76,19 +79,44 @@ refill_drums  = func {
 #For testing only, of course!
 # 
 
-unlimited_guns = func {
+# unlimited_guns = func {
 
-  groundspeed=getprop("/velocities/groundspeed-kt");
-  engine_rpm=getprop("/engines/engine[0]/rpm");
+#   groundspeed=getprop("/velocities/groundspeed-kt");
+#   engine_rpm=getprop("/engines/engine[0]/rpm");
   
-
     
-    setprop ( t_gun_ammo_count, -1); #ammo r
-    setprop ( t_gun_tracer_count, -1); #tracer r
+#     setprop ( t_gun_ammo_count, -1); #ammo r
+#     setprop ( t_gun_tracer_count, -1); #tracer r
+#     setprop ( t_unlimited_ammo, true); #checkbox
 
+   
+#     gui.popupTip ("Guns set to unlimited mode--definitely not realistic and only for testing!  Select 'Reload Guns' to revert to limited ammo.",7)
+  
+# }
+
+unlimited_ammo_guns = func {
+
+  unlimited_ammo=getprop("/controls/armament/lewismg[0]/unlimited-ammo");
+
+    if (unlimited_ammo == true) {
+    
+    setprop ( t_gun_ammo_count, 65); #ammo
+    setprop ( t_gun_tracer_count, 13); #tracer
+    setprop ( mags_load, 5); #drum
+    setprop ( t_unlimited_ammo, false); #checkbox
+    
+    gui.popupTip ("Guns unlimited ammo is OFF.",7)
+    
+  } else {
+   
+    setprop ( t_gun_ammo_count, -1); #ammo
+    setprop ( t_gun_tracer_count, -1); #tracer
+    setprop ( mags_load, 5); #drum
+    setprop ( t_unlimited_ammo, true); #checkbox
    
     gui.popupTip ("Guns set to unlimited mode--definitely not realistic and only for testing!  Select 'Reload Guns' to revert to limited ammo.",7)
   
+  }
+  
 }
-
  
