@@ -177,7 +177,7 @@
     <path>Effects/ground/all-ground.xml</path>
   </model>
 
-  <!-- Bloques de freins parking -->
+  <!-- parking wedges -->
   <animation>
     <type>select</type>
     <object-name>freins</object-name>
@@ -189,7 +189,7 @@
     </condition>
   </animation>
 
-  <!-- L'h�lice -->
+  <!-- propeller -->
   <animation>
     <name>HeliceComplete</name>
     <object-name>propdisc</object-name>
@@ -197,7 +197,7 @@
     <object-name>helice</object-name>
   </animation>
 
-  <!-- S�l�ction de l'objet visible en fonction des rpm -->
+  <!-- show hide based on rpm -->
   <animation>
     <type>select</type>
     <object-name>propdisc</object-name>
@@ -275,6 +275,18 @@
 
   <animation>
     <type>select</type>
+    <object-name>lewisdrum.001_ammo</object-name>
+    <condition>
+        <property>controls/armament/lewismg[0]/install</property>
+        <not-equals>
+          <property>/ai/submodels/submodel[0]/count</property>
+          <value>0</value>
+        </not-equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
     <object-name>lewisdrum_extra.001</object-name>
     <condition>
         <property>controls/armament/lewismg[0]/install</property>
@@ -331,7 +343,7 @@
     </condition>
   </animation>
 
-  <!-- Gouverne de profondeur -->
+  <!-- elevator -->
   <animation>
     <type>rotate</type>
     <object-name>profondeur</object-name>
@@ -349,7 +361,7 @@
     </axis>
   </animation>
 
-  <!-- Gouverne de direction -->
+  <!-- rudder -->
   <animation>
     <type>rotate</type>
     <object-name>direction</object-name>
@@ -367,7 +379,7 @@
     </axis>
   </animation>
 
-  <!-- Pedals -->
+  <!-- pedals -->
   <animation>
     <type>rotate</type>
     <object-name>pedals.003</object-name>
@@ -385,7 +397,7 @@
     </axis>
   </animation>
 
-  <!-- Stick -->
+  <!-- stick -->
 
   <animation>
     <type>rotate</type>
@@ -393,9 +405,9 @@
     <property>/controls/flight/aileron</property>
     <factor> -6 </factor>
     <center>
-      <x-m> -1.91541 </x-m>
+      <x-m> -1.94592 </x-m>
       <y-m> 0.0 </y-m>
-      <z-m> -0.20444 </z-m>
+      <z-m> -0.203414 </z-m>
     </center>
     <axis>
       <x> 1 </x>
@@ -407,13 +419,14 @@
   <animation>
     <type>rotate</type>
     <object-name>controlstick</object-name>
+    <object-name>controlstick.001</object-name>
     <property>/controls/flight/elevator</property>
     <factor> -6 </factor>
     <offset-deg>-16</offset-deg>
     <center>
-      <x-m> -1.91541 </x-m>
+      <x-m> -1.94592 </x-m>
       <y-m> 0.0 </y-m>
-      <z-m> -0.20444 </z-m>
+      <z-m> -0.203414 </z-m>
     </center>
     <axis>
       <x> 0 </x>
@@ -422,7 +435,26 @@
     </axis>
   </animation>
 
-  <!-- Animations des ailerons -->
+<!-- throttle -->
+ 
+<animation>
+  <type>rotate</type>
+  <object-name>throttle_lever</object-name>
+  <property>/controls/engines/engine/throttle</property>
+  <factor>80</factor>
+  <center>
+	<x-m>-1.73791</x-m>
+	<y-m> 0.0 </y-m>
+	<z-m> 0.072233</z-m>
+  </center>
+ <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+  <!-- ailerons -->
   <animation>
     <type>rotate</type>
     <object-name>aileronG</object-name>
